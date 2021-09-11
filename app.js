@@ -28,7 +28,11 @@ function showProfitOrLoss() {
   const totalCurrentPrice =
     Number(currentPrice.value) * Number(stockQuantity.value);
   //calculate profit or loss with percentage
-  calculateProfitOrLoss(totalInitialPrice, totalCurrentPrice);
+  if(initialPrice.value && currentPrice.value){
+    calculateProfitOrLoss(totalInitialPrice, totalCurrentPrice);
+  }else{
+    outputEl.innerText = 'Please enter all the inputs!'
+  }
 }
 
 checkBtn.addEventListener('click', showProfitOrLoss);
